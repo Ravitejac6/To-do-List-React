@@ -1,26 +1,33 @@
 import React from "react";
+import { ListItem, Checkbox, Button } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const Todo = ({ todo, toggleComplete, removeTodo }) => {
-  function handleCheckboxClick() {
+  const handleCheckboxClick = () => {
     toggleComplete(todo.id);
-  }
+  };
 
-  function handleRemoveClick() {
+  const handleRemoveClick = () => {
     removeTodo(todo.id);
-  }
+  };
   return (
-    <div style={{ display: "flex" }}>
-      <input type="checkbox" onClick={handleCheckboxClick} />
+    <ListItem style={{ display: "flex" }}>
+      <Checkbox
+        checked={todo.completed}
+        type="checkbox"
+        onClick={handleCheckboxClick}
+      />
       <li
         style={{
-          color: "white",
           textDecoration: todo.completed ? "line-through" : null,
         }}
       >
         {todo.task}
       </li>
-      <button onClick={handleRemoveClick}>X</button>
-    </div>
+      <Button onClick={handleRemoveClick}>
+        <DeleteIcon />
+      </Button>
+    </ListItem>
   );
 };
 

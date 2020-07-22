@@ -1,5 +1,5 @@
 import React from "react";
-import { ListItem, Checkbox, Button } from "@material-ui/core";
+import { ListItem, Checkbox, Button, ListItemText } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const Todo = ({ todo, toggleComplete, removeTodo }) => {
@@ -17,13 +17,13 @@ const Todo = ({ todo, toggleComplete, removeTodo }) => {
         type="checkbox"
         onClick={handleCheckboxClick}
       />
-      <li
+      <ListItemText
         style={{
           textDecoration: todo.completed ? "line-through" : null,
         }}
       >
         {todo.task}
-      </li>
+      </ListItemText>
       <Button onClick={handleRemoveClick}>
         <DeleteIcon />
       </Button>

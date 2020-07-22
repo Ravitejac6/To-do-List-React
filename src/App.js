@@ -47,15 +47,17 @@ const App = () => {
 
   return (
     <div className="App">
-      <Typography style={{ padding: 16 }} variant="h1">
-        To-do-List
-      </Typography>
-      <TodoForm addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        toggleComplete={toggleComplete}
-        removeTodo={removeTodo}
-      />
+      <div className="box">
+        <Typography style={{ padding: 16 }} variant="h1">
+          To-do-List
+        </Typography>
+        <TodoForm addTodo={addTodo} />
+        <TodoList
+          todos={todos}
+          toggleComplete={toggleComplete}
+          removeTodo={removeTodo}
+        />
+      </div>
     </div>
   );
 };

@@ -10,6 +10,7 @@ const App = () => {
   const [todos, setTodos] = useState([]); // For functional components to maintain states we use useState. First argument is data and
   // second argument is to modify that data.
 
+  const [item, setItem] = useState({ task: "" });
   // For initital rendering we have to set the localStorage. Initializing with empty object.
   useEffect(() => {
     const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -45,17 +46,27 @@ const App = () => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const modify = (item) => {
+    setItem(item);
+    console.log("Modify function " + item);
+  };
+
+  const editItem = (edit) => {
+    console.log("editted " + edit.task + " " + edit.id);
+    console.log("original " + item.task + " " + item.id);
+  };
   return (
     <div className="App">
       <div className="box">
         <Typography style={{ padding: 16 }} variant="h1">
           To-do-List
         </Typography>
-        <TodoForm addTodo={addTodo} />
+        <TodoForm addTodo={addTodo} item={item} editItem={editItem} />
         <TodoList
           todos={todos}
           toggleComplete={toggleComplete}
           removeTodo={removeTodo}
+          modify={modify}
         />
       </div>
     </div>

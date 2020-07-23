@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem, Checkbox, Button, ListItemText } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-const Todo = ({ todo, toggleComplete, removeTodo }) => {
+const Todo = ({ todo, toggleComplete, removeTodo, modify }) => {
   const handleCheckboxClick = () => {
     toggleComplete(todo.id);
   };
@@ -24,6 +24,7 @@ const Todo = ({ todo, toggleComplete, removeTodo }) => {
       >
         {todo.task}
       </ListItemText>
+      <Button onClick={() => modify(todo)}>Edit</Button>
       <Button onClick={handleRemoveClick}>
         <DeleteIcon />
       </Button>

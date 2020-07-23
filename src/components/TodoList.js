@@ -2,7 +2,7 @@ import React from "react";
 import Todo from "./Todo";
 import { List } from "@material-ui/core";
 
-export const TodoList = ({ todos, toggleComplete, removeTodo }) => {
+export const TodoList = ({ todos, toggleComplete, removeTodo, modify }) => {
   return (
     <List>
       {todos.map((todo) => (
@@ -11,6 +11,7 @@ export const TodoList = ({ todos, toggleComplete, removeTodo }) => {
           todo={todo}
           toggleComplete={toggleComplete}
           removeTodo={removeTodo}
+          modify={modify}
         />
       ))}
     </List>
